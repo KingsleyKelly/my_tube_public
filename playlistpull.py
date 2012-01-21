@@ -1,7 +1,6 @@
 # coding: utf-8
 
 from BeautifulSoup import BeautifulSoup
-import feedparser
 import gdata.youtube
 import gdata.youtube.service
 import urlparse
@@ -12,9 +11,10 @@ import time
 import re
 import urllib2
 import string
+
 word_search = re.compile('\w+')
 count = 0
-playlist = "new_play.txt"
+playlist = "new_file_yeah.txt"
 played = []
 
 def SearchAndPlay(search_terms):

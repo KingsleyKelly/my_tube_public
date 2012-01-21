@@ -1,15 +1,17 @@
 # coding: utf-8
-
+import sys
 import urllib2
 import re
 import webbrowser
 import itertools
 from BeautifulSoup import BeautifulSoup
 
-"""If title is not equal to search terms dont play!	"""
+"""TO USE: Insert the club url as argument 1,
+           and the start point for the list as
+           argument number 2."""
 
-url = "http://www.residentadvisor.net/club-detail.aspx?id=5031&yr=2011"
-
+url = sys.argv[1]
+start_point = sys.argv[2]
 def remove_all(sub, s):
 	"Remove a substring from a string"
 	return re.sub(re.escape(sub), '', s)
@@ -107,7 +109,7 @@ def top10_puller(dj_top_10):
 	else:
 		return
 	
-berghain = club_puller(url)[11:15]
+berghain = club_puller(url)[start_point:(start_point + 5)]
 berghain = map(dj_puller, berghain)
 berghain = flatten(berghain)
 
