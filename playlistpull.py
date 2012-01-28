@@ -46,6 +46,8 @@ def tuner(playlist):
 	return line
 
 def searcher(search_terms):
+   """Search for terms in you tube and return the first result for
+      artist and title """ 
 	yt_service = gdata.youtube.service.YouTubeService()
 	query = gdata.youtube.service.YouTubeVideoQuery()
 	query.vq = search_terms
@@ -56,6 +58,7 @@ def searcher(search_terms):
 
 
 def player(video_url, search_terms):
+    """Play video in Firefox"""
 	counter = 0
 	x = webbrowser.get('firefox')
 	x.open(video_url.strip())
@@ -63,6 +66,7 @@ def player(video_url, search_terms):
 	#webbrowser.open(video_url, new=2)
 
 def sleeper(duration):
+    """sleep for given time, keyboard interrupt (Ctrl-C) to cancel"""
 	for i in range(0, int(duration)):
 		try:
 			time.sleep(1)
@@ -71,13 +75,13 @@ def sleeper(duration):
 			break
 
 def writer(name, duration, url, f):
-	
+    """writes to the file f"""	
 	new_line = name.strip() + " " + url + "      " + str(duration) + "\n"
 	f.write(new_line)
 	
 
 def scanner(title, f):
-	
+    """Checks if result is in file"""	
 	for line in f:
 		line = line.strip()
 		
@@ -86,6 +90,8 @@ def scanner(title, f):
 					
 
 def check_cache(title):
+    """Main function, searches file, plays song, or searches youtube
+       then plays song"""
 	title = title[2:]
 	f = open('cache.txt', 'r+')		
 	cached = scanner(title, f)
@@ -104,7 +110,7 @@ def check_cache(title):
 	
 	f.close
 		
-
+#start of program
 		
 while count is not 7:
 	
