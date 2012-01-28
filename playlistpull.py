@@ -58,16 +58,6 @@ def searcher(search_terms):
 def player(video_url, search_terms):
 	counter = 0
 	x = webbrowser.get('firefox')
-
-	# regex = re.compile('<title>(.*?)</title>', re.IGNORECASE|re.DOTALL)
-	# fuck = urllib2.urlopen(video_url).read()
-	# shit = regex.findall(str(fuck))
-
-	# if shit[0]:
-	# 	for i in search_terms.split(" "):
-	# 		if i in shit[0]:
-	# 			counter += 1
-	# 			if counter == len(search_terms.split(" ")):
 	x.open(video_url.strip())
 	print video_url
 	#webbrowser.open(video_url, new=2)
